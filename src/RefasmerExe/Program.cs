@@ -114,6 +114,11 @@ namespace JetBrains.Refasmer
 
             try
             {
+                if(!Directory.Exists(_outputDir))
+                {
+                    Directory.CreateDirectory(_outputDir);
+                }
+
                 _logger.Trace?.Invoke($"Program arguments: {string.Join(" ", args)}");
 
                 XmlTextWriter xmlWriter = null;
